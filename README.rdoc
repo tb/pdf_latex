@@ -1,0 +1,46 @@
+= pdf_latex
+
+  Wrapper around pdflatex that helps to complile PDFs and do all kind of DTP tricks with LaTeX.
+  It can be used in Rails together with wicked_pdf.
+
+== Gemfile
+
+  gem 'pdf_latex', :git => 'git@github.com:tb/pdf_latex.git'
+
+== Usage sample
+
+  Controller build PDF compiled of many wicked_pdf PDFs renderings.
+  Cover can be horizontal PDF and content can be landscape.
+  Be editing <tt>#{Rails.root}/lib/latex/workbook</tt>
+
+  class Elearning::Pdf::WorkbookController < Elearning::Pdf::ApplicationController
+
+    def show
+      pdf = PdfLatex.new('workbook').render_to_string({
+        :cover => "http://#{request.host_with_port}/pdf/workbook/cover",
+        :content => "http://#{request.host_with_port}/pdf/workbook/content"
+      })
+
+      send_data pdf, :filename => 'workbook.pdf', :type => 'application/pdf'
+    end
+
+  end
+
+== Installing pdflatex in Ubuntu
+
+   apt-get install texlive-latex-base texlive-latex-recommended texlive-fonts-recommended
+
+== Contributing to pdf_latex
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
+* Fork the project.
+* Start a feature/bugfix branch.
+* Commit and push until you are happy with your contribution.
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Copyright
+
+Copyright (c) 2012 Tomasz Bak. See MIT-LICENSE for further details.
+

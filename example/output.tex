@@ -1,0 +1,29 @@
+\documentclass[a4paper,landscape,8pt]{article}
+\usepackage[landscape]{geometry}
+\usepackage[final]{pdfpages}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\topmargin -60pt
+\oddsidemargin 173pt
+\evensidemargin 173pt
+
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[RE,RO]{
+  \tikz \node[draw=white,fill=gray,rectangle]{
+    {\color{white} \thepage}
+  };
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\begin{document}
+
+\includepdfset{pages=-,nup=2x1,pagecommand=\thispagestyle{fancy}}
+\includepdf{input.pdf}
+
+\end{document}]
