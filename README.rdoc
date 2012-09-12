@@ -9,9 +9,10 @@ It can be used in Rails together with wicked_pdf.
 
 == Usage sample
 
-Controller build PDF compiled of many wicked_pdf PDFs renderings.
+Below you can see controller code that builds PDF compiled of many wicked_pdf PDFs renderings.
 Cover can be horizontal PDF and content can be landscape.
-Be editing <tt>#{Rails.root}/lib/latex/workbook.tex</tt>
+Compiled PDF is build based on LaTeX file that should be located at <tt>#{Rails.root}/lib/latex/workbook.tex</tt>
+See also http://github.com/tb/pdf_latex/tree/master/example for LaTeX example.
 
   class Elearning::Pdf::WorkbookController < Elearning::Pdf::ApplicationController
 
