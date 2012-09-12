@@ -1,17 +1,17 @@
 = pdf_latex
 
-  Wrapper around pdflatex that helps to complile PDFs and do all kind of DTP tricks with LaTeX.
-  It can be used in Rails together with wicked_pdf.
+Wrapper around pdflatex that helps to complile PDFs and do all kind of DTP tricks with LaTeX.
+It can be used in Rails together with wicked_pdf.
 
-== Gemfile
+=== Gemfile
 
   gem 'pdf_latex', :git => 'git@github.com:tb/pdf_latex.git'
 
 == Usage sample
 
-  Controller build PDF compiled of many wicked_pdf PDFs renderings.
-  Cover can be horizontal PDF and content can be landscape.
-  Be editing <tt>#{Rails.root}/lib/latex/workbook</tt>
+Controller build PDF compiled of many wicked_pdf PDFs renderings.
+Cover can be horizontal PDF and content can be landscape.
+Be editing <tt>#{Rails.root}/lib/latex/workbook</tt>
 
   class Elearning::Pdf::WorkbookController < Elearning::Pdf::ApplicationController
 
