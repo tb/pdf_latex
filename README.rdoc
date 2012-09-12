@@ -11,7 +11,7 @@ It can be used in Rails together with wicked_pdf.
 
 Controller build PDF compiled of many wicked_pdf PDFs renderings.
 Cover can be horizontal PDF and content can be landscape.
-Be editing <tt>#{Rails.root}/lib/latex/workbook</tt>
+Be editing <tt>#{Rails.root}/lib/latex/workbook.tex</tt>
 
   class Elearning::Pdf::WorkbookController < Elearning::Pdf::ApplicationController
 
