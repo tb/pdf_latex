@@ -8,6 +8,6 @@ Gem::Specification.new do |s|
   s.summary = "Ruby wrapper for pdflatex"
   s.email = "t.bak@selleo.com"
   s.authors = ["Tomasz Bak"]
-  s.files = Dir["{app,lib,config,db}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,lib,config,db}/**/*"] + ["MIT-LICENSE", "README.rdoc"]
 end
 
