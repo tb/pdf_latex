@@ -7,7 +7,7 @@ class PdfLatex
   cattr_accessor :config
   attr_accessor :latex_template
 
-  def initialize(latex_template_name)
+  def initialize(latex_template_name, latex_template=nil)
     @pdflatex_bin ||= PdfLatex.config[:pdflatex_bin] unless PdfLatex.config.empty?
     @pdflatex_bin ||= (defined?(Bundler) ? `bundle exec which pdflatex` : `which pdflatex`).chomp
     raise "Location of pdflatex unknown." if @pdflatex_bin.empty?
@@ -15,10 +15,16 @@ class PdfLatex
     raise "#{@pdflatex_bin} is not executable" unless File.executable?(@pdflatex_bin)
 
     @build_path = File.join(Rails.root, 'tmp', "pdflatex-#{Time.now.to_i}#{rand(1000)}")
-    @latex_template = File.join(Rails.root, 'lib', 'latex', "#{latex_template_name}.tex")
-    raise "Bad LaTeX template path: #{@latex_template}" unless File.exists?(@latex_template)
-
     FileUtils.mkdir_p @build_path
+
+    if latex_template.nil?
+      @latex_template = File.join(Rails.root, 'lib', 'latex', "#{latex_template_name}.tex")
+      raise "Bad LaTeX template path: #{@latex_template}" unless File.exists?(@latex_template)
+    else
+      @latex_template = File.join(@build_path, "#{latex_template_name}.tex")
+      File.open(@latex_template, 'w') {|f| f.write(latex_template) }
+    end
+
     @output_path = File.join(@build_path, "#{latex_template_name}.pdf")
   end
 
