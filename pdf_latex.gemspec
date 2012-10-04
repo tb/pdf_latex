@@ -2,7 +2,7 @@
 # project in your rails apps through git.
 Gem::Specification.new do |s|
   s.name = "pdf_latex"
-  s.version = "0.1.0"
+  s.version = "0.2.0"
   s.homepage = "http://github.com/tb/pdf_latex"
   s.license = "MIT"
   s.summary = "Ruby wrapper for pdflatex"
